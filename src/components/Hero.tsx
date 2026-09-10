@@ -204,7 +204,7 @@ const Hero: React.FC = () => {
             {/* LEFT CONTENT */}
             <div className="relative flex min-w-0 flex-col justify-center pl-[clamp(2.75rem,7.5vw,7.5rem)] py-[5%]">
               <h1 className="font-serif leading-[0.82] tracking-[-0.065em] text-[#11151d]">
-                <span className="relative font-serif text-[clamp(2.35rem,5vw,6.8rem)] leading-[0.83] tracking-[-0.068em] text-[#11151d]">
+                <span className="relative font-serif text-[clamp(2rem,5vw,6.8rem)] leading-[0.83] tracking-[-0.068em] text-[#11151d]">
                   Arena
                   <span
                     aria-hidden="true"
@@ -212,16 +212,16 @@ const Hero: React.FC = () => {
                   />
                 </span>
 
-                <span className="mt-[0.12em] block font-semibold text-[clamp(3.15rem,6.1vw,7rem)] leading-[0.82]">
+                <span className="mt-[0.12em] block font-semibold text-[clamp(3rem,6.1vw,7rem)] leading-[0.82]">
                   Candidate
                 </span>
 
-                <span className="-ml-[0.025em] block font-semibold text-[clamp(3.7rem,7.2vw,8.2rem)] leading-[0.78] tracking-[-0.075em] text-[#8c241c]">
+                <span className="-ml-[0.025em] block font-semibold text-[clamp(3rem,7.2vw,8.2rem)] leading-[0.78] tracking-[-0.075em] text-[#8c241c]">
                   Master
                 </span>
               </h1>
 
-              <p className="mt-[4.5%] max-w-[30rem] font-sans text-[clamp(11px,1.12vw,17px)] font-medium leading-[1.55] tracking-[-0.01em] text-[#11151d]/70 sm:max-w-[33rem] lg:max-w-[36rem]">
+              <p className="mt-[4.5%] min-[300px]:w-[14rem] sm:w-[35em] font-sans text-[clamp(10px,1.3vw,16px)] font-medium leading-[1.55] tracking-[-0.01em] text-[#11151d]/70 sm:max-w-[33rem] lg:max-w-[36rem]">
                 FIDE Arena Candidate Master and chess mentor helping students
                 develop stronger thinking, deeper focus, and confidence through
                 the game of chess.
@@ -239,13 +239,13 @@ const Hero: React.FC = () => {
           </div>
 
           {/* SOCIAL LINKS */}
-          <div className="absolute bottom-[5.5%] left-[42%] z-30 flex -translate-x-2/3 items-center">
+          <div className="absolute bottom-[5.5%] left-[42%] z-30 flex -translate-x-[57%] items-center">
             {SOCIAL_LINKS.map((social, index) => (
               <React.Fragment key={social.label}>
                 <a
                   href={social.href}
                   aria-label={social.label}
-                  className="group relative flex items-center gap-2.5 px-2.5 py-2 text-[#11151d]/70 transition-all duration-300 hover:-translate-y-1 hover:text-[#8c241c] sm:gap-3 sm:px-3 sm:py-2.5 lg:gap-3.5 lg:px-3.5 lg:py-3"
+                  className="group relative flex items-center gap-2.5 px-2 py-2 text-[#11151d]/70 transition-all duration-300 hover:-translate-y-1 hover:text-[#8c241c] sm:gap-3 sm:px-3 sm:py-2.5 lg:gap-3.5 lg:px-3.5 lg:py-3"
                 >
                   <span className="flex items-center justify-center text-[15px] transition-transform duration-300 group-hover:scale-110 sm:text-[16px] lg:text-[18px]">
                     {social.icon}

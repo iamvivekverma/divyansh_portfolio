@@ -287,18 +287,18 @@ export default function Navbar() {
       ================================================= */}
       <div
         id="mobile-nav-panel"
-        className={`fixed inset-0 z-[60] bg-[#fffdf8] antialiased transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] lg:hidden ${
+        className={`fixed inset-0 z-[60] flex h-dvh w-full flex-col overflow-y-auto bg-[#fffdf8] antialiased transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] lg:hidden ${
           isOpen
             ? "pointer-events-auto opacity-100 scale-100"
             : "pointer-events-none opacity-0 scale-[0.98]"
         }`}
       >
-        {/* MOBILE MENU HEADER WITH CLOSE BUTTON */}
-        <div className="flex h-[82px] items-center justify-between px-6 sm:px-8">
+        {/* MOBILE MENU HEADER */}
+        <div className="sticky top-0 z-10 flex h-[70px] shrink-0 items-center justify-between bg-[#fffdf8]/90 px-6 backdrop-blur-md sm:px-8">
           <a
             href="#about"
             onClick={(event) => handleNavClick(event, "#about")}
-            className={`text-[20px] font-semibold tracking-[-0.03em] text-[#11151d] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            className={`text-[19px] font-semibold tracking-[-0.03em] text-[#11151d] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
               isOpen
                 ? "translate-y-0 opacity-100"
                 : "-translate-y-2 opacity-0"
@@ -324,8 +324,9 @@ export default function Navbar() {
           </button>
         </div>
 
-        <div className="flex h-[calc(100vh-82px)] flex-col px-6 pb-8 pt-4 sm:px-8">
-          <div className="flex flex-col">
+        {/* CONTENT & LINKS */}
+        <div className="flex flex-1 flex-col justify-between px-6 pb-8 pt-2 sm:px-8">
+          <div className="flex flex-col divide-y divide-[#11151d]/10">
             {NAV_LINKS.map((link, index) => {
               const sectionId = link.href.replace("#", "");
               const isActive = activeSection === sectionId;
@@ -336,15 +337,15 @@ export default function Navbar() {
                   href={link.href}
                   onClick={(event) => handleNavClick(event, link.href)}
                   style={{
-                    transitionDelay: isOpen ? `${index * 50 + 100}ms` : "0ms",
+                    transitionDelay: isOpen ? `${index * 40 + 80}ms` : "0ms",
                   }}
-                  className={`group flex items-center justify-between border-b border-[#11151d]/10 py-4.5 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  className={`group flex items-center justify-between py-3.5 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                     isOpen
                       ? "translate-y-0 opacity-100"
                       : "translate-y-4 opacity-0"
                   } ${isActive ? "text-[#11151d]" : "text-[#555963]"}`}
                 >
-                  <span className="flex items-center gap-3 text-[20px] font-medium tracking-[-0.02em]">
+                  <span className="flex items-center gap-3 text-[18px] font-medium tracking-[-0.02em] sm:text-[20px]">
                     <span
                       className={`h-[6px] w-[6px] rounded-full bg-[#f5c542] transition-all duration-300 ease-out ${
                         isActive
@@ -356,7 +357,7 @@ export default function Navbar() {
                   </span>
 
                   <span
-                    className={`text-[20px] transition-all duration-300 ease-out ${
+                    className={`text-[18px] transition-all duration-300 ease-out ${
                       isActive
                         ? "translate-x-0 text-[#11151d]"
                         : "text-[#b1b3b8] group-hover:translate-x-1"
@@ -373,10 +374,10 @@ export default function Navbar() {
           <div
             style={{
               transitionDelay: isOpen
-                ? `${NAV_LINKS.length * 50 + 100}ms`
+                ? `${NAV_LINKS.length * 40 + 80}ms`
                 : "0ms",
             }}
-            className={`mt-auto transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            className={`mt-6 pt-2 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
               isOpen
                 ? "translate-y-0 opacity-100"
                 : "translate-y-4 opacity-0"
@@ -388,9 +389,7 @@ export default function Navbar() {
               className="flex w-full items-center justify-center gap-2.5 rounded-full bg-[#f5c542] px-6 py-3.5 text-[14.5px] font-medium tracking-[-0.01em] text-[#11151d] shadow-[0_4px_20px_rgba(245,197,66,0.25)] transition-all duration-300 hover:bg-[#e8b63f] active:scale-[0.98]"
             >
               <span>Book a Session</span>
-              <span className="text-[16px] transition-transform duration-300 group-hover:translate-x-1">
-                →
-              </span>
+              <span className="text-[16px]">→</span>
             </a>
           </div>
         </div>
