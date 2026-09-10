@@ -16,7 +16,7 @@ export default function Intro({ onEnter }: IntroProps) {
   const [startClosing, setStartClosing] = useState(false);
   const [isClosed, setIsClosed] = useState(false);
 
-  const firstText = "Hi, I'm Toyesh Singh";
+  const firstText = "Hi, I'm Divyansh Singh";
   const secondText = "Chess Mentor & Strategist";
 
   useEffect(() => {
