@@ -200,7 +200,7 @@ const Hero: React.FC = () => {
           </div>
 
           {/* CONTENT GRID */}
-          <div className="absolute inset-0 z-10 grid grid-cols-[57%_43%]">
+          <div className="absolute inset-0 z-10 grid md:grid-cols-[57%_43%] grid-cols-[57%_53%]">
             {/* LEFT CONTENT */}
             <div className="relative flex min-w-0 flex-col justify-center pl-[clamp(2.75rem,8.5vw,8rem)] py-[5%]">
               <h1 className="font-serif leading-[0.82] tracking-[-0.065em] text-[#11151d]">
