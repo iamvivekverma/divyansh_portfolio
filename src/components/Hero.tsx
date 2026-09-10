@@ -202,7 +202,7 @@ const Hero: React.FC = () => {
           {/* CONTENT GRID */}
           <div className="absolute inset-0 z-10 grid grid-cols-[57%_43%]">
             {/* LEFT CONTENT */}
-            <div className="relative flex min-w-0 flex-col justify-center pl-[clamp(2.75rem,7.5vw,7.5rem)] py-[5%]">
+            <div className="relative flex min-w-0 flex-col justify-center pl-[clamp(2.75rem,8.5vw,8rem)] py-[5%]">
               <h1 className="font-serif leading-[0.82] tracking-[-0.065em] text-[#11151d]">
                 <span className="relative font-serif text-[clamp(2rem,5vw,6.8rem)] leading-[0.83] tracking-[-0.068em] text-[#11151d]">
                   Arena
@@ -221,7 +221,7 @@ const Hero: React.FC = () => {
                 </span>
               </h1>
 
-              <p className="mt-[4.5%] min-[300px]:w-[14rem] sm:w-[35em] font-sans text-[clamp(10px,1.3vw,16px)] font-medium leading-[1.55] tracking-[-0.01em] text-[#11151d]/70 sm:max-w-[33rem] lg:max-w-[36rem]">
+              <p className="mt-[4.5%] min-[300px]:w-[11rem] sm:w-[35em] font-sans text-[clamp(10px,1.3vw,16px)] font-medium leading-[1.55] tracking-[-0.01em] text-[#11151d]/70 sm:max-w-[33rem] lg:max-w-[36rem]">
                 FIDE Arena Candidate Master and chess mentor helping students
                 develop stronger thinking, deeper focus, and confidence through
                 the game of chess.
