@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Reveal from "./motion/Reveal";
 
-interface GalleryImage {
+export interface GalleryImage {
   src: string;
   alt: string;
 }
@@ -12,19 +12,11 @@ interface MyGalleryProps {
 }
 
 const defaultImages: GalleryImage[] = [
-  { src: "/images/t1.PNG", alt: "Chess coaching session" },
-  { src: "/images/t2.PNG", alt: "Young player during a chess game" },
-  { src: "/images/t3.PNG", alt: "Chess board during a session" },
-  { src: "/images/t4.PNG", alt: "Chess board during a session" },
-  { src: "/images/t5.PNG", alt: "Chess board during a session" },
-  { src: "/images/t6.PNG", alt: "Chess board during a session" },
-  { src: "/images/t7.PNG", alt: "Chess board during a session" },
-  { src: "/images/t8.PNG", alt: "Chess board during a session" },
-  { src: "/images/t9.PNG", alt: "Chess board during a session" },
-  { src: "/images/t10.PNG", alt: "Chess board during a session" },
+  { src: "/images/1.jpeg", alt: "Chess coaching session" },
+  { src: "/images/2.png", alt: "Young player during a chess game" },
 ];
 
-export default function MyGallery({
+export default function Achievements({
   images = defaultImages,
 }: MyGalleryProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,27 +33,28 @@ export default function MyGallery({
     setIsOpen(true);
   };
 
-  const closeGallery = () => {
+  const closeGallery = useCallback(() => {
     setIsOpen(false);
     setActiveIndex(null);
-  };
+  }, []);
 
-  const nextImage = () => {
+  const nextImage = useCallback(() => {
     if (images.length <= 1) return;
     setActiveIndex((current) => {
       if (current === null) return 0;
       return (current + 1) % images.length;
     });
-  };
+  }, [images.length]);
 
-  const previousImage = () => {
+  const previousImage = useCallback(() => {
     if (images.length <= 1) return;
     setActiveIndex((current) => {
       if (current === null) return 0;
       return (current - 1 + images.length) % images.length;
     });
-  };
+  }, [images.length]);
 
+  // Handle keyboard interaction and body scroll locks
   useEffect(() => {
     if (!isOpen) return;
 
@@ -99,7 +92,7 @@ export default function MyGallery({
       body.style.overflow = previousBodyOverflow;
       html.style.overflow = previousHtmlOverflow;
     };
-  }, [isOpen]);
+  }, [isOpen, closeGallery, nextImage, previousImage]);
 
   if (!images.length) return null;
 
@@ -107,7 +100,7 @@ export default function MyGallery({
     <>
       {/* GALLERY SECTION */}
       <section
-        id="gallery"
+        id="achievements"
         className="
           relative
           overflow-hidden
@@ -122,82 +115,28 @@ export default function MyGallery({
         "
       >
         <div className="mx-auto max-w-[1240px]">
-          {/* Header */}
-          <Reveal y={24}>
-            <div
-              className="
-                mb-12
-                flex
-                flex-col
-                gap-8
-                border-b
-                border-[#11151d]/10
-                pb-8
-                sm:mb-14
-                md:flex-row
-                md:items-end
-                md:justify-between
-                lg:mb-16
-                lg:pb-10
-              "
-            >
-              <div>
-                <div className="mb-4 flex items-center gap-3">
-                  <span
-                    aria-hidden="true"
-                    className="h-[2px] w-8 bg-[#dcae24]"
-                  />
-                  <p
-                    className="
-                      text-[0.62rem]
-                      font-semibold
-                      uppercase
-                      tracking-[0.24em]
-                      text-[#8c241c]
-                    "
-                  >
-                    Through the lens
-                  </p>
-                </div>
-
-                <h2
-                  className="
-                    max-w-[780px]
-                    font-display
-                    text-[clamp(2.6rem,6vw,5.2rem)]
-                    font-medium
-                    leading-[0.9]
-                    tracking-[-0.055em]
-                  "
-                >
-                  Moments that{" "}
-                  <span className="font-normal italic text-[#8c241c]">
-                    stay.
-                  </span>
-                </h2>
-              </div>
-
-              <p
-                className="
-                  max-w-[330px]
-                  text-[0.8rem]
-                  leading-[1.7]
-                  text-[#11151d]/60
-                  sm:text-[0.86rem]
-                "
-              >
-                A few personal frames from the journey, away from the board and
-                between the moves.
+          <Reveal className="mb-12 max-w-[820px]" y={24}>
+            <div className="border-l-2 border-[#8c241c] pl-6">
+              <p className="text-[0.72rem] font-medium uppercase tracking-[0.18em] text-[#8c241c]">
+                Achievements
               </p>
+
+              <h2 className="mt-3 font-display text-[clamp(2.2rem,6vw,4.2rem)] font-medium leading-[0.95] tracking-[-0.04em] text-[var(--color-ink)]">
+                Results that
+                <br />
+                <span className="font-normal italic text-[#8c241c]">
+                  speak for themselves.
+                </span>
+              </h2>
             </div>
           </Reveal>
 
-          {/* Main Card */}
+          {/* Main Card Trigger */}
           <Reveal y={32} delay={100}>
             <button
               type="button"
               onClick={() => openGallery(0)}
-              aria-label="Open personal photo collection"
+              aria-label="Open achievement photo gallery"
               className="
                 group
                 relative
@@ -219,14 +158,7 @@ export default function MyGallery({
                 focus-visible:ring-offset-4
               "
             >
-              <div
-                className="
-                  relative
-                  h-[400px]
-                  w-full
-                  sm:h-[550px]
-                "
-              >
+              <div className="relative h-[400px] w-full sm:h-[550px]">
                 {/* Burgundy accent corner */}
                 <div
                   aria-hidden="true"
@@ -273,7 +205,7 @@ export default function MyGallery({
                       <div className="aspect-[4/3] overflow-hidden">
                         <img
                           src={images[0].src}
-                          alt=""
+                          alt={images[0].alt}
                           loading="lazy"
                           className="
                             h-full
@@ -303,8 +235,8 @@ export default function MyGallery({
                         shadow-[0_22px_45px_rgba(17,21,29,0.2)]
                         transition-transform
                         duration-700
-                        group-hover:rotate-[6deg]
                         group-hover:translate-x-1
+                        group-hover:rotate-[6deg]
                         sm:right-[8%]
                         sm:w-[34%]
                         lg:right-[9%]
@@ -314,7 +246,7 @@ export default function MyGallery({
                       <div className="aspect-[4/3] overflow-hidden">
                         <img
                           src={images[1].src}
-                          alt=""
+                          alt={images[1].alt}
                           loading="lazy"
                           className="
                             h-full
@@ -344,8 +276,8 @@ export default function MyGallery({
                         shadow-[0_22px_45px_rgba(17,21,29,0.2)]
                         transition-transform
                         duration-700
-                        group-hover:rotate-[2deg]
                         group-hover:-translate-y-1
+                        group-hover:rotate-[2deg]
                         sm:left-[9%]
                         sm:w-[30%]
                         lg:left-[10%]
@@ -355,7 +287,7 @@ export default function MyGallery({
                       <div className="aspect-[4/3] overflow-hidden">
                         <img
                           src={images[2].src}
-                          alt=""
+                          alt={images[2].alt}
                           loading="lazy"
                           className="
                             h-full
@@ -396,7 +328,7 @@ export default function MyGallery({
                       <div className="aspect-[4/3] overflow-hidden">
                         <img
                           src={images[3].src}
-                          alt=""
+                          alt={images[3].alt}
                           loading="lazy"
                           className="
                             h-full
@@ -436,7 +368,7 @@ export default function MyGallery({
                       <div className="aspect-square overflow-hidden">
                         <img
                           src={images[4].src}
-                          alt=""
+                          alt={images[4].alt}
                           loading="lazy"
                           className="h-full w-full object-cover"
                         />
@@ -445,7 +377,7 @@ export default function MyGallery({
                   )}
                 </div>
 
-                {/* Bottom Action Button */}
+                {/* Bottom Action Badge */}
                 <div
                   className="
                     absolute
@@ -453,7 +385,6 @@ export default function MyGallery({
                     left-5
                     z-50
                     flex
-                    cursor-pointer
                     items-center
                     gap-3
                     rounded-[10px]
@@ -466,19 +397,12 @@ export default function MyGallery({
                     lg:left-8
                   "
                 >
-                  <span
-                    className="
-                      text-[0.62rem]
-                      font-semibold
-                      uppercase
-                      tracking-[0.18em]
-                      text-[#11151d]/60
-                    "
-                  >
+                  <span className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#11151d]/60">
                     View collection
                   </span>
 
                   <span
+                    aria-hidden="true"
                     className="
                       flex
                       h-9
@@ -525,7 +449,7 @@ export default function MyGallery({
             "
             role="dialog"
             aria-modal="true"
-            aria-label="Personal Photo Gallery"
+            aria-label="Personal Photo Lightbox"
             onClick={(event) => {
               if (event.target === event.currentTarget) {
                 closeGallery();
@@ -536,7 +460,7 @@ export default function MyGallery({
             <button
               type="button"
               onClick={closeGallery}
-              aria-label="Close gallery"
+              aria-label="Close gallery lightbox"
               className="
                 absolute
                 right-4
@@ -691,10 +615,6 @@ export default function MyGallery({
                   relative
                   max-h-full
                   max-w-full
-                  bg-[#fffdf7]
-                  p-1
-                  shadow-[0_30px_100px_rgba(0,0,0,0.5)]
-                  sm:p-2
                 "
               >
                 <img

@@ -8,26 +8,26 @@ interface GalleryImage {
 }
 
 const GALLERY_IMAGES: GalleryImage[] = [
-  { src: "/images/1.png", alt: "Chess moment 1" },
-  { src: "/images/2.png", alt: "Chess moment 2" },
-  { src: "/images/4.png", alt: "Chess moment 3" },
-  { src: "/images/7.png", alt: "Chess moment 4" },
-  { src: "/images/8.png", alt: "Chess moment 5" },
-  { src: "/images/9.jpeg", alt: "Chess moment 6" },
-  { src: "/images/10.jpeg", alt: "Chess moment 7" },
-  { src: "/images/11.jpeg", alt: "Chess moment 8" },
-  { src: "/images/12.jpeg", alt: "Chess moment 9" },
-  { src: "/images/13.jpeg", alt: "Chess moment 10" },
-  { src: "/images/14.jpeg", alt: "Chess moment 11" },
-  { src: "/images/15.jpeg", alt: "Chess moment 12" },
-  { src: "/images/16.jpeg", alt: "Chess moment 13" },
+  { src: "/images/t4.jpeg", alt: "Chess moment 1" },
+  { src: "/images/t1.jpeg", alt: "Chess moment 2" },
+  { src: "/images/t3.jpeg", alt: "Chess moment 3" },
+  { src: "/images/t2.jpeg", alt: "Chess moment 4" },
+  // { src: "/images/8.png", alt: "Chess moment 5" },
+  // { src: "/images/9.jpeg", alt: "Chess moment 6" },
+  // { src: "/images/10.jpeg", alt: "Chess moment 7" },
+  // { src: "/images/11.jpeg", alt: "Chess moment 8" },
+  // { src: "/images/12.jpeg", alt: "Chess moment 9" },
+  // { src: "/images/13.jpeg", alt: "Chess moment 10" },
+  // { src: "/images/14.jpeg", alt: "Chess moment 11" },
+  // { src: "/images/15.jpeg", alt: "Chess moment 12" },
+  // { src: "/images/16.jpeg", alt: "Chess moment 13" },
 ];
 
 interface GalleryProps {
   images?: GalleryImage[];
 }
 
-export default function Gallery({
+export default function Impacts({
   images = GALLERY_IMAGES,
 }: GalleryProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -750,10 +750,6 @@ export default function Gallery({
                   relative
                   max-h-full
                   max-w-full
-                  bg-[#fffdf7]
-                  p-1
-                  shadow-[0_30px_100px_rgba(0,0,0,0.5)]
-                  sm:p-2
                 "
               >
                 <img

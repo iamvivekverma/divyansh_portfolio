@@ -17,12 +17,12 @@ const SOCIAL_LINKS = [
   },
   {
     label: "WhatsApp",
-    href: "#",
+    href: "https://wa.me/917258889848?text=Hi%20Divyansh",
     icon: <FaWhatsapp />,
   },
   {
     label: "Email",
-    href: "mailto:",
+    href: "mailto:divyanshsingh1598@gmail.com",
     icon: <MdEmail />,
   },
   {
@@ -299,7 +299,7 @@ const Hero: React.FC = () => {
           {/* STAT 2 */}
           <div className="px-1 text-center sm:px-4 lg:px-8">
             <div className="font-serif text-[clamp(1.1rem,4vw,3.25rem)] font-semibold leading-none tracking-[-0.05em] text-[#11151d]">
-              5<span className="text-[#eab62f]">+</span>
+              3<span className="text-[#eab62f]">+</span>
             </div>
             <p className="mt-1 text-[7px] font-semibold uppercase tracking-[0.05em] text-[#6b7280] sm:mt-2 sm:text-[10px] sm:tracking-[0.12em] lg:text-xs">
               Years Experience
