@@ -12,7 +12,7 @@ import divyanshImage from "../assets/divyansh.png";
 const SOCIAL_LINKS = [
   {
     label: "LinkedIn",
-    href: "#",
+    href: "https://www.linkedin.com/in/coachdivyansh",
     icon: <FaLinkedinIn />,
   },
   {

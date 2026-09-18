@@ -558,7 +558,7 @@ function Home() {
                   <FaWhatsapp className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://linkedin.com/in/Divyanshsingh"
+                  href="https://www.linkedin.com/in/coachdivyansh"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-ink)]/15 bg-[var(--color-paper)] text-[var(--color-ink-soft)] transition-all duration-300 hover:border-[var(--color-ink)] hover:bg-[var(--color-ink)] hover:text-[var(--color-paper)]"
